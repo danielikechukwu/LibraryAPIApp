@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc
+﻿using Microsoft.AspNetCore.Mvc;
 namespace LibraryAPI.Models
 {
     public class Book

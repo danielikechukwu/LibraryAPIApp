@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -26,6 +26,24 @@ namespace LibraryAPI.Controllers
                 Author = details.Author,
                 Year = details.Year
             };
+            return Ok(response);
+        }
+
+        [HttpPost("{id}")]
+        public IActionResult CreateABook(Book request)
+        {
+            // Logic to store the data in the database would go here.
+            // For demonstration, we'll return the received data as a response.
+            var response = new
+            {
+                BookId = request.Id,
+                Category = request.Category,
+                UserId = request.UserId,
+                Title = request.Details.Title,
+                Author = request.Details.Author,
+                Year = request.Details.Year
+            };
+
             return Ok(response);
         }
     }
